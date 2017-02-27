@@ -1,0 +1,85 @@
+#!/usr/bin/env python3
+    # ensure environment variables are set
+import sys
+import os
+import nltk
+from twython import Twython
+from nltk.tokenize import TweetTokenizer
+from analyzer import Analyzer
+from termcolor import colored
+
+#     export API_KEY=4DiSyFKOaLd9AkaqfjCA57z4d
+#     export API_SECRET=CBfPqRlSQK2jgsjWLiqjC04gqFpZji7qaUXcvQfxrIKYqW8XIM
+
+positives = os.path.join(sys.path[0], "positive-words.txt")
+negatives = os.path.join(sys.path[0], "negative-words.txt")
+analyzer = Analyzer(positives, negatives)
+
+def scored(text):
+    h= text
+    h=h.split()
+    points=0
+    for d in h:
+        score = analyzer.analyze(d)
+        #print(d, score)
+        points=points+score
+    return points
+        
+
+def getUserTimeline(screen_name, count=200):
+    twitter = Twython(os.environ.get("API_KEY"), os.environ.get("API_SECRET"))
+    #tweets = twitter.getUserTimeline(screen_name=screen_name, count=count)
+    #q=sys.argv[1]
+    #q = q.replace("@", "") 
+    """
+    g=""
+    for s in q:
+        if (s!="@"):
+            g=g+s
+    print(g)        
+    q=g[0] 
+    print(q)"""
+    
+    s=twitter.search(q=sys.argv[1].replace("@", "") )
+    #for f in s:
+     #   tokenizer = TweetTokenizer()
+      #  tokens = tokenizer.tokenize(f)
+       # print(tokens)
+    
+
+    #print(s)
+    #tokenizer = TweetTokenizer()
+    #tokens = tokenizer.tokenize(s)
+    #k=len(s)
+    #print(k)
+    #uno="statuses" in s
+    #print(uno)
+    #print(len(s['statuses']))
+    for f in s['statuses']:
+        #print (f)
+        #if "text" in f:
+           #print("si esta text")
+        #print()
+        #print(len(f))
+        h=f['text']
+        score=scored(h)
+        if score > 0.0:
+            print(colored(score,"green"), end=" ")
+            print(colored(f['text'],"green"), end="")
+        elif score < 0.0:
+            print(colored(score,"red"), end=" ")
+            print(colored(f['text'],"red"), end="")
+        else:
+         print(colored(score,"yellow"), end=" ")
+         print(colored(f['text'],"yellow"), end="")
+        #print(f['text'])
+        print()
+
+def main():
+    if len(sys.argv) != 2:
+        sys.exit("Usage: ./tweets @screen_name")
+    getUserTimeline(screen_name="screen_name")
+    return 0
+
+if __name__ == "__main__":
+    main()
