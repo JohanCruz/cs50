@@ -1,0 +1,89 @@
+.container
+{
+    /* center contents */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+/* colors for navbar */
+.navbar-default .navbar-brand .blue
+{
+    color: #537fbe;
+}
+.navbar-default .navbar-brand .red
+{
+    color: #ea433b;
+}
+.navbar-default .navbar-brand .yellow
+{
+    color: #f5b82e;
+}
+.navbar-default .navbar-brand .green
+{
+    color: #2e944b;
+}
+
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+main img
+{
+    /* constrain images on small screens */
+    max-width: 100%;
+}
+
+main td
+{
+    /* left-align tables' cells */
+    text-align: left;
+    padding: 6px;
+}
+
+table td:first-child {
+	width: 180px; 
+}
+ 
+table td:nth-child(2) {
+	width: 500px;
+
+}
+ 
+table td:nth-child(3) {
+	width: 150px;
+}
+
+table td:nth-child(4) {
+	width: 150px;
+}
+ 
+table td:last-child {
+	width: 150px;
+}
+
+tbody tr:nth-child(3n){
+background-color:#F5F6CE;
+color:orange;
+font:bold;
+}
+
+tbody tr:nth-child(3n+2){
+background-color:#E0E6F8;
+color:blue;
+font:bold;
+}
+p {
+
+background-color:#E0E6F8;
+margin-left:auto;
+margin-right:auto;
+color:#f1ae0d;
+font:bold;
+font-family:"Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
