@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+<p>
+ <!--   {{ lk}}
+</p>
+<p>
+  {{ sim}}{{ du}}<input type="text" … required> -->
+  {{ lk}}
+</p>
+<p>
+  {{ sim}}{{ du}}  
+</p>
+    {% if d==1  %}
+<table border-collapse: separate; border-spacing: 12px; border-color: gray;>
+            <tr border="4">
+            <th scope="row">Symbol {{ "  " }}</th>   
+            <th scope="row">Name {{ "  " }}</th>  
+            <th scope="row">Shares {{ "  " }}</th>   
+            <th scope="row">Price {{ "  " }}</th>   
+            <th scope="row">Total {{ "  " }}</th>
+            </tr>
+        <tr border="4">
+    {% endif %}
+    {% for t in transa %}
+
+            <td>{{ t.SYMBOL.upper() }}</td>   
+            <td>{{ t.NAME }} </td>  
+            <td>{{ t.SHARES }} </td>   
+            <td>{{ t.PRICE }} </td>   
+            <td>{{ t.PRICE*t.SHARES }}</td>
+            </tr>
+    {% endfor %}
+
+</table>
+
+    <form action="{{ url_for('buy') }}" method="post">
+        <fieldset>
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="simbolo" placeholder="Simbolo" type="text"/required>
+            </div>
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="shares" placeholder="Shares" type="number" min="1"/required>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-default" type="submit">Buy</button>
+            </div>
+        </fieldset>
+    </form>
+
+{% endblock %}

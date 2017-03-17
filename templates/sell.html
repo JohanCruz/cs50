@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+<p>
+ <!--   {{ lk}}
+</p>
+<p>
+  {{ sim}}{{ du}}<input type="text" … required> -->
+  {{ lk}}
+</p>
+<p>
+  {{ sim}}{{ du}}  
+</p>
+    {% if d==1  %}
+
+
+<table border-collapse: separate; border-spacing: 12px; border-color: gray;>
+            <tr border="4">
+            <th scope="row">Symbol {{ "  " }}</th>
+            <th scope="row">Name {{ "  " }}</th>
+            <th scope="row">Shares {{ "  " }}</th>  
+            <th scope="row">Total {{ "  " }}</th>            
+          <!-- <th scope="row">Price {{ "  " }}</th> -->
+
+            </tr>
+        <tr border="4">
+
+    {% for t in dicc %}
+
+            <td>{{ t }}</td>   
+            <td>{{ dicc3[t] }}</td>
+            <td>{{ dicc[t] }}</td>
+            <td>{{ dicc2[t] }}</td>
+            </tr>
+    {% endfor %}
+
+</table>
+    {% endif %}
+
+ 
+    <!-- <form action="{{ url_for('sell') }}" method="post">
+        <fieldset>
+            <div class="form-group">
+                    
+                    <select name="simbolo"/required>
+                    {% for t in dicc %}
+                    <option>{{ t }}</option>
+                    {% endfor %}
+                    </select>
+            </div>
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="shares" placeholder="Shares" type="number" min="1"/required>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-default" type="submit">Sell</button>
+            </div>
+        </fieldset>
+    </form> -->
+<p>You have a maximum number of shares to sell:</p>
+<HTML>
+<HEAD><TITLE>Ejemplo de metodo submit()</TITLE>
+<SCRIPT LANGUAGE="JavaScript">
+<!--
+var di={{ dicc| tojson }};
+console.log(di);
+console.log('Error:', di);
+function CompruebaValor(Formu) {
+    var duo = Formu.simbolo.value;
+    document.getElementById("demo").innerHTML = {{ dicc| tojson }}[duo];
+    }
+function CompruebaValor2(Formu) {
+    var duo = Formu.simbolo.value;
+    document.getElementById("demo").innerHTML = {{ dicc| tojson }}[duo];
+    if ((Formu.shares.value > {{ dicc| tojson }}[duo])||(Formu.shares.value<1)){
+      Formu.shares.value = ""  /*Formu.submit()*/
+      alert("Not enough to sell")
+    }      
+      
+
+
+   
+} //-->
+</SCRIPT>
+</HEAD>
+
+<BODY>
+<p id="demo"></p>
+<form action="{{ url_for('sell') }}" method="post">
+<select name="simbolo" onChange="CompruebaValor(this.form)" /required>
+{% for t in dicc %}
+<option>{{ t }}</option>
+{% endfor %}
+</select>
+<INPUT TYPE="text" NAME="shares" placeholder="Shares" type="number" onChange="CompruebaValor2(this.form)"  min= "0" /required>
+
+
+<button class="btn btn-default" type="submit" >Sell</button>
+</FORM>
+</BODY>
+</HTML>
+{% endblock %}

@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+<p>
+ <!--   {{ lk}}
+</p>
+<p>
+  {{ sim}}{{ du}}<input type="text" … required> -->
+  {{ lk}}
+</p>
+<p>
+  {{ sim}}{{ du}}  
+</p>
+    {% if su2==1  %}
+<p id="NOTA">
+    
+  Bought! 
+</p>
+    {% endif %}
+    {% if d==1  %}
+
+
+<table border-collapse: separate; border-spacing: 12px; border-color: gray;>
+            <tr border="4">
+            <th scope="row">Symbol {{ "  " }}</th>
+            <th scope="row">Name {{ "  " }}</th>
+            <th scope="row">Shares {{ "  " }}</th>  
+            <th scope="row">Total {{ "  " }}</th>            
+          <!-- <th scope="row">Price {{ "  " }}</th> -->
+
+            </tr>
+        <tr border="4">
+
+    {% for t in dicc %}
+
+            <td>{{ t }}</td>   
+            <td>{{ dicc3[t] }}</td>
+            <td>{{ dicc[t] }}</td>
+            <td>{{ dicc2[t] }}</td>
+            </tr>
+    {% endfor %}
+            <th scope="row">{{ "  " }}</th>
+            <th scope="row"> {{ "  " }}</th>
+            <th scope="row"> TOTAL CASH:{{ "  " }}</th>  
+            <th scope="row"> {{ tt }}</th>
+</table>
+    {% endif %}
+
+ 
+    <!-- <form action="{{ url_for('sell') }}" method="post">
+        <fieldset>
+            <div class="form-group">
+                    
+                    <select name="simbolo"/required>
+                    {% for t in dicc %}
+                    <option>{{ t }}</option>
+                    {% endfor %}
+                    </select>
+            </div>
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" name="shares" placeholder="Shares" type="number" min="1"/required>
+            </div>
+            <div class="form-group">
+                <button class="btn btn-default" type="submit">Sell</button>
+            </div>
+        </fieldset>
+    </form> -->
+
+{% endblock %}
