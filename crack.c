@@ -5,6 +5,11 @@
 #include <string.h>
 #include <crypt.h>
 
+/*
+ Tarea principios basicos de computacion cientifica cs50
+ https://www.google.com/search?client=firefox-b-d&q=crack+cs50
+*/
+
 int main()
 {
    printf("%s\n",crypt("abc","ab"));
