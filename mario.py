@@ -1,5 +1,8 @@
 import cs50
 
+# Tarea principios basicos de computacion cientifica cs50
+# https://www.google.com/search?client=firefox-b-d&q=mario+cs50
+
 def main():
     i = get_positive_int()
     escalones(i)
