@@ -7,6 +7,10 @@ import crypt
 from hmac import compare_digest as compare_hash
 
 
+# Tarea principios basicos de computacion cientifica cs50
+# https://www.google.com/search?client=firefox-b-d&q=crack+cs50
+
+
 def combination():
     for p in range(65, 122):
         for q in range(65, 122):
