@@ -1,5 +1,8 @@
 import cs50
 
+# Tarea principios basicos de computacion cientifica cs50
+# https://www.google.com/search?client=firefox-b-d&q=credit+cs50
+
 def main():
     i = numerodet()
     digitos(i)
