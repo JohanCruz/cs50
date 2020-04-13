@@ -1,5 +1,10 @@
 import cs50
 
+
+# Tarea principios basicos de computacion cientifica cs50
+# https://www.google.com/search?client=firefox-b-d&q=greedy+cs50
+
+
 def main():
     i = 100*get_money()
     count(i)
